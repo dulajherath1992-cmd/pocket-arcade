@@ -42,7 +42,7 @@ export class PreloadScene extends Phaser.Scene {
       this.showFailure('The shared theme is invalid.');
       return;
     }
-    this.scene.start(SceneKeys.setup, { accent: theme.accent });
+    this.scene.start('main-menu');
   }
 
   private onProgress(value: number): void {

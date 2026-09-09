@@ -2,11 +2,12 @@ import Phaser from 'phaser';
 import { gameConfig } from './config/gameConfig';
 import { BootScene } from './scenes/BootScene';
 import { PreloadScene } from './scenes/PreloadScene';
-import { SetupScene } from './scenes/SetupScene';
+import { MainMenuScene } from './scenes/MainMenuScene';
+import { TinyTankScene } from './games/tiny-tank/TinyTankScene';
 import './style.css';
 
 try {
-  const game = new Phaser.Game({ ...gameConfig, scene: [BootScene, PreloadScene, SetupScene] });
+  const game = new Phaser.Game({ ...gameConfig, scene: [BootScene, PreloadScene, MainMenuScene, TinyTankScene] });
   if (import.meta.hot) {
     import.meta.hot.dispose(() => game.destroy(true));
   }

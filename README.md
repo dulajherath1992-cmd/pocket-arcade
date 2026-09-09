@@ -1,4 +1,61 @@
-# Pocket Arcade — Phase 3
+# Pocket Arcade — Tiny Tank playable build
+
+The main menu and first playable game are now implemented. This follows the
+request to jump from the startup milestone to a complete game for testing.
+
+## What you can play
+
+- Main menu with Tiny Tank cartridge, best score, coins, progress and settings.
+- Five-wave Tiny Tank mission with player/base health, enemy AI, destructible
+  brick and steel walls, bullets, coins, repair and rapid-fire pickups.
+- Pause/resume, game over/victory, restart and return to arcade.
+- Local high scores, run counts, wins, collected coins and preferences.
+- Original synthesized sound effects and optional placeholder chiptune loop.
+- Optional browser vibration where supported; native haptics are not integrated.
+
+Arrow keys or WASD move and aim. Hold Space to shoot. Press Escape to pause.
+On touch devices, hold a direction on the pad and FIRE with a second finger.
+The green tank is yours. Protect the gold cross-shaped base from enemy shots.
+Green pickups repair your tank; blue pickups enable rapid fire for eight seconds.
+Music is off by default and can be enabled in Settings.
+
+## Test this build
+
+```bash
+npm ci
+npm test
+npm run build
+npm run dev
+```
+
+1. Check Settings toggles and My Progress, then return to the menu.
+2. Start Tiny Tank; move, turn and hold fire. Try shooting brick and steel.
+3. Collect coins/power-ups; watch score, tank HP and base HP.
+4. Pause with Escape or the top-right button: the world should stop. Resume.
+5. Let enemies destroy your tank/base, then try Play Again and Return to Arcade.
+6. Check the saved best score and coins; reload to verify persistence.
+7. Complete all five waves for the victory screen. The simulation's automated
+   victory test checks progression, not whether the difficulty is enjoyable.
+8. On a real phone, test simultaneous direction + FIRE, lifting fingers,
+   rotation and backgrounding. Audio and vibration require device checks.
+
+Automated tests cover collision, damage/invulnerability, pickups, scoring,
+wave progression, the fixed bullet pool, and save persistence/fallback.
+The production build and strict TypeScript checks pass. Browser UI/playtesting
+could not be completed in this environment because the preview connection was
+blocked; real-device playtesting is still required. No 60 FPS claim is made.
+
+The root README omitted by the earlier upload was restored in Phase 3.
+Earlier phase notes below document the original foundation; the startup now
+ends at MainMenuScene rather than the temporary SetupScene.
+
+## Scope still deferred
+
+Native Capacitor packaging/haptics, cloud saves, ads, purchases, achievements,
+additional games, professional art/audio and advanced enemy pathfinding remain
+future work. Current art is original procedural block-style tank rendering.
+
+## Phase 3 foundation notes
 
 Phase 3 adds the startup sequence: Boot → Preload → Setup. Boot chooses the
 loading scene; Preload fetches and validates the shared theme; Setup displays
